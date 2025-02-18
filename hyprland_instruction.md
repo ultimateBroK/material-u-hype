@@ -9,6 +9,7 @@
 	monitor=HDMI-A-1,1920x1080@75,0x0,1
 
 **Animation** 
+
     animations {
         enabled = yes
 
@@ -42,7 +43,7 @@
         animation = workspaces, 1, 0.8, easeOutQuart, slidefade 70% # 800ms
         animation = specialWorkspace, 1, 0.8, easeOutQuart, slidefade 70% # 800ms
     }
-    
+
 **Gesture**
 
     gesture {
