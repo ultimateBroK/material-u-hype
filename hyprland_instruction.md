@@ -48,3 +48,12 @@
         animation = workspaces, 1, 6, easeOutQuart, slidefade 70% # Chuyển đổi workspace mượt
         animation = specialWorkspace, 1, 6, easeOutQuart, slidefade 70% #Nếu có sử dụng special workspace
     }
+
+**Gesture**
+
+    gesture {
+        workspace_swipe = true
+        workspace_swipe_fingers = 3
+        disable_while_typing = true
+    }
+
