@@ -10,8 +10,6 @@
 
 **Animation** 
 
-# ~/.config/hypr/animations.conf
-
     animations {
         enabled = yes
 
