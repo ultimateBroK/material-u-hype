@@ -13,38 +13,40 @@
     animations {
         enabled = yes
 
-        # ===== Định nghĩa Bezier Curves =====
-        # Các đường cong phổ biến, dễ sử dụng
-        bezier = easeOutQuart, 0.25, 1, 0.5, 1   # Mượt mà, chậm dần về cuối
-        bezier = easeInOutSine, 0.37, 0, 0.63, 1 # Chuyển tiếp mềm mại, cân bằng
-        bezier = modernBounce, 0.18, 0.99, 0, 1.15 # (Tùy chọn) Hiệu ứng nảy, có thể bỏ qua
+        # ===== Định nghĩa Bezier Curves (tùy chỉnh) =====
+        bezier = easeOutQuart, 0.25, 1, 0.5, 1  # Mượt mà, chậm dần về cuối
+        bezier = easeInOutSine, 0.37, 0, 0.63, 1 # Chuyển tiếp mềm mại
+        bezier = modernBounce, 0.18, 0.99, 0, 1.15   # Hiệu ứng "nảy" nhẹ nhàng
+        #bezier = linear, 0, 0, 1, 1
+
 
         # ===== Windows Animations =====
-        # Cân bằng tốt giữa tốc độ và độ mượt
-        animation = windowsIn, 1, 0.5, easeOutQuart, slide      # 500ms
-        animation = windowsOut, 1, 0.4, easeOutQuart, slide     # 400ms
-        animation = windowsMove, 1, 0.4, easeInOutSine, slide   # 400ms
+        animation = windowsIn, 1, 4, easeOutQuart, slide
+        animation = windowsOut, 1, 3, easeOutQuart, slide
+        animation = windowsMove, 1, 4, easeInOutSine, slide
 
         # ===== Layers Animations =====
-        animation = layersIn, 1, 0.45, easeOutQuart, slide  # 450ms
-        animation = layersOut, 1, 0.35, easeOutQuart, fade   # 350ms
+        animation = layersIn, 1, 4, easeOutQuart, slide
+        animation = layersOut, 1, 3, easeOutQuart, fade
 
         # ===== Fade Animations =====
-        # Nhanh, nhưng không gây khó chịu
-        animation = fadeIn, 1, 0.3, easeInOutSine       # 300ms
-        animation = fadeOut, 1, 0.2, easeInOutSine      # 200ms
-        animation = fadeSwitch, 1, 0.15, easeInOutSine   # 150ms
-        animation = fadeShadow, 1, 0.2, easeInOutSine  # 200ms
-        animation = fadeDim, 1, 0.3, easeInOutSine     # 300ms
+        animation = fadeIn, 1, 4, easeInOutSine
+        animation = fadeOut, 1, 3, easeInOutSine
+        animation = fadeSwitch, 1, 3, easeInOutSine
+        animation = fadeShadow, 1, 3, easeInOutSine
+        animation = fadeDim, 1, 3, easeInOutSine
+
+        # Fade cho Layer, tránh config chồng chéo, và gây ra lỗi.
+        animation = fadeLayersIn, 1, 4, easeOutQuart
+        animation = fadeLayersOut, 1, 3, easeOutQuart
 
         # ===== Border Animations =====
-        animation = border, 1, 1.0, default  # 1 giây
-        animation = borderangle, 1, 3.0, default, loop # 3 giây
+        animation = border, 1, 5, default
+        animation = borderangle, 1, 15, default, loop
 
         # ===== Workspaces Animations =====
-        # Chuyển workspace mượt mà
-        animation = workspaces, 1, 0.5, easeOutQuart, slidefade 70% # 500ms
-        animation = specialWorkspace, 1, 0.5, easeOutQuart, slidefade 70% # 500ms
+        animation = workspaces, 1, 4, easeOutQuart, slidefade 70%
+        animation = specialWorkspace, 1, 4, easeOutQuart, slidefade 70%
     }
 
 **Gesture**
