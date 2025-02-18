@@ -13,46 +13,38 @@
     animations {
         enabled = yes
 
-        # ===== Bezier Curves =====
-        # Tạo các đường cong Bezier tùy chỉnh để tái sử dụng, tạo sự nhất quán.
-        bezier = easeInOut, 0.42, 0.0, 0.58, 1.0  # Dùng cho hầu hết các animation, tạo sự mượt mà
-        bezier = easeOut, 0.0, 0.0, 0.58, 1.0    # Dùng cho các animation "ra" (out), nhanh dần về cuối
-        bezier = easeIn, 0.42, 0.0, 1.0, 1.0    # Dùng cho animation "vào" (in), chậm dần về cuối
-        bezier = myOvershoot, 0.05, 0.9, 0.1, 1.4    # Dùng cho các animation workspace, tạo điểm nhấn
+        # ===== Định nghĩa Bezier Curves (tùy chỉnh) =====
+        bezier = easeOutQuart, 0.25, 1, 0.5, 1  # Mượt mà, chậm dần về cuối
+        bezier = easeInOutSine, 0.37, 0, 0.63, 1 # Chuyển tiếp mềm mại
+        bezier = modernBounce, 0.18, 0.99, 0, 1.15   # Hiệu ứng "nảy" nhẹ nhàng
+        #bezier = linear, 0, 0, 1, 1
 
 
-        # ===== Global Windows Animations =====
-        animation = windowsIn, 1, 7, easeIn, slide
-        animation = windowsOut, 1, 7, easeOut, slide
-        animation = windowsMove, 1, 7, easeInOut, none  # Không dùng 'slide' cho di chuyển để tránh giật
+        # ===== Windows Animations =====
+        animation = windowsIn, 1, 7, easeOutQuart, slide
+        animation = windowsOut, 1, 7, easeOutQuart, slide
+        animation = windowsMove, 1, 5, easeInOutSine, slide
 
         # ===== Layers Animations =====
-        # Layer: Các lớp layer shell (ví dụ: thanh trạng thái, thông báo, ...)
-        animation = layersIn, 1, 6, easeInOut, fade
-        animation = layersOut, 1, 5, easeOut, fade
+        animation = layersIn, 1, 6, easeOutQuart, slide
+        animation = layersOut, 1, 6, easeOutQuart, fade
 
         # ===== Fade Animations =====
-        # Độ mờ (opacity)
-        animation = fadeIn, 1, 7, easeInOut
-        animation = fadeOut, 1, 7, easeInOut
-        animation = fadeSwitch, 1, 4, easeInOut
-        animation = fadeShadow, 1, 4, easeInOut
-        animation = fadeDim, 1, 4, easeInOut
-            # Fade layer
-        animation = fadeLayersIn, 1, 7, easeIn,
-        animation = fadeLayersOut, 1, 7, easeOut,
+        animation = fadeIn, 1, 8, easeInOutSine
+        animation = fadeOut, 1, 6, easeInOutSine
+        animation = fadeSwitch, 1, 3, easeInOutSine
+        animation = fadeShadow, 1, 3, easeInOutSine #Nếu có đổ bóng
+        animation = fadeDim, 1, 5, easeInOutSine  # Điều chỉnh nếu có dim_inactive
+
+        # Fade cho Layer, tránh config chồng chéo, và gây ra lỗi.
+        animation = fadeLayersIn, 1, 6, easeOutQuart,
+        animation = fadeLayersOut, 1, 4, easeOutQuart,
 
         # ===== Border Animations =====
-        animation = border, 1, 10, default  # Điều chỉnh tốc độ đổi màu viền
-        animation = borderangle, 1, 30, default, loop # Đổi góc gradient, chậm và lặp lại
+        animation = border, 1, 10, default # Tốc độ thay đổi màu border
+        animation = borderangle, 1, 30, default, loop # Nếu dùng gradient border
 
         # ===== Workspaces Animations =====
-        # Chuyển workspace
-        animation = workspacesIn, 1, 8, myOvershoot, slide
-        animation = workspacesOut, 1, 8, myOvershoot, slidefade 20%
-
-        # ===== Special Workspace Animations =====
-        animation = specialWorkspaceIn, 1, 8, myOvershoot, slide
-        animation = specialWorkspaceOut, 1, 8, myOvershoot, slidefade 20%
+        animation = workspaces, 1, 6, easeOutQuart, slidefade 70% # Chuyển đổi workspace mượt
+        animation = specialWorkspace, 1, 6, easeOutQuart, slidefade 70% #Nếu có sử dụng special workspace
     }
-
