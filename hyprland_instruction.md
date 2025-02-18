@@ -19,29 +19,29 @@
         bezier = modernBounce, 0.18, 0.99, 0, 1.15
 
         # ===== Windows Animations =====
-        # Cân bằng giữa mượt mà và phản hồi
-        animation = windowsIn, 1, 0.85, easeOutQuart, slide      # 850ms
-        animation = windowsOut, 1, 0.85, easeOutQuart, slide     # 850ms
-        animation = windowsMove, 1, 0.65, easeInOutSine, slide   # 650ms
+        # Chậm hơn để thấy rõ hiệu ứng, nhưng vẫn mượt
+        animation = windowsIn, 1, 1.2, easeOutQuart, slide     # 1200ms (1.2 giây)
+        animation = windowsOut, 1, 1.2, easeOutQuart, slide    # 1200ms (1.2 giây)
+        animation = windowsMove, 1, 0.9, easeInOutSine, slide  # 900ms
 
         # ===== Layers Animations =====
-        animation = layersIn, 1, 0.7, easeOutQuart, slide   # 700ms
-        animation = layersOut, 1, 0.7, easeOutQuart, fade    # 700ms
+        animation = layersIn, 1, 1.0, easeOutQuart, slide  # 1000ms (1 giây)
+        animation = layersOut, 1, 1.0, easeOutQuart, fade   # 1000ms (1 giây)
 
         # ===== Fade Animations =====
-        animation = fadeIn, 1, 0.5, easeInOutSine       # 500ms
-        animation = fadeOut, 1, 0.4, easeInOutSine      # 400ms
-        animation = fadeSwitch, 1, 0.25, easeInOutSine   # 250ms
-        animation = fadeShadow, 1, 0.25, easeInOutSine  # 250ms
-        animation = fadeDim, 1, 0.35, easeInOutSine     # 350ms
+        animation = fadeIn, 1, 0.7, easeInOutSine      # 700ms
+        animation = fadeOut, 1, 0.6, easeInOutSine     # 600ms
+        animation = fadeSwitch, 1, 0.4, easeInOutSine  # 400ms
+        animation = fadeShadow, 1, 0.4, easeInOutSine # 400ms
+        animation = fadeDim, 1, 0.5, easeInOutSine    # 500ms
 
         # ===== Border Animations =====
-        animation = border, 1, 1.2, default  # 1.2 giây
-        animation = borderangle, 1, 3.5, default, loop # 3.5 giây
+        animation = border, 1, 1.5, default # 1.5 giây
+        animation = borderangle, 1, 4.0, default, loop # 4 giây
 
         # ===== Workspaces Animations =====
-        animation = workspaces, 1, 0.7, easeOutQuart, slidefade 70% # 700ms
-        animation = specialWorkspace, 1, 0.7, easeOutQuart, slidefade 70% # 700ms
+        animation = workspaces, 1, 0.9, easeOutQuart, slidefade 70% # 900ms
+        animation = specialWorkspace, 1, 0.9, easeOutQuart, slidefade 70% # 900ms
     }
 
 **Gesture**
