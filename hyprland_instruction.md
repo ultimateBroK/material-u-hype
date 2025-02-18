@@ -10,54 +10,55 @@
 
 **Animation** 
 
-    animations {
-        enabled = yes
+    # Global animation settings
+    animation {
+    enabled = true;
+    speed = 8; # Adjusts overall animation speed (lower is faster)
+    }
 
-        # Bezier curve mượt mà, hiện đại (ease-in-out)
-        bezier = easeinout, 0.4, 0.0, 0.6, 1.0
+    # Windows animations
+    window {
+    animation-style = slide;
+    animation-in = left;   # Slide in from the left when opening a window
+    animation-out = right; # Slide out to the right when closing a window
+    animation-move = popin; # Smooth effect for moving/resizing windows
+    }
 
-        # Global durations (có thể tùy chỉnh nếu muốn)
-        animation_duration_windows = 5
-        animation_duration_layers = 5
-        animation_duration_workspaces = 7
-        animation_duration_fade = 5
-        animation_duration_border = 5
+    # Layers animations
+    layer {
+    animation-style = fade;
+    animation-in = fadeLayersIn;  # Fade in layers smoothly
+    animation-out = fadeLayersOut; # Fade out layers smoothly
+    }
 
-        # Windows Animations
-        animation = windows, 1, $animation_duration_windows, easeinout, fade # Fallback animation cho windows
-        animation = windowsIn, 1, $animation_duration_windows, easeinout, slide, left
-        animation = windowsOut, 1, $animation_duration_windows, easeinout, slide, right
-        animation = windowsMove, 1, $animation_duration_windows, easeinout, fade
+    # Fade animations
+    fade {
+    animation-fadein = 300ms;       # Window open fade duration
+    animation-fadeout = 300ms;      # Window close fade duration
+    animation-fadeswitch = 200ms;   # Active window switch fade duration
+    animation-fadeshadow = 200ms;   # Shadow fade duration
+    animation-fadedim = 250ms;      # Dimming inactive windows easing
+    animation-fadelayers = 300ms;   # Layer fade duration
+    }
 
-        # Layers Animations
-        animation = layers, 1, $animation_duration_layers, easeinout, fade # Fallback animation cho layers
-        animation = layersIn, 1, $animation_duration_layers, easeinout, fade
-        animation = layersOut, 1, $animation_duration_layers, easeinout, fade
+    # Border animations
+    border {
+    animation-speed = 200ms;        # Speed of border color transitions
+    }
 
-        # Fade Animations
-        animation = fade, 1, $animation_duration_fade, easeinout # Fallback animation cho fade
-        animation = fadeIn, 1, $animation_duration_fade, easeinout, fade
-        animation = fadeOut, 1, $animation_duration_fade, easeinout, fade
-        animation = fadeSwitch, 1, $animation_duration_fade, easeinout
-        animation = fadeShadow, 1, $animation_duration_fade, easeinout
-        animation = fadeDim, 1, $animation_duration_fade, easeinout
-        animation = fadeLayers, 1, $animation_duration_fade, easeinout # Fallback cho fadeLayers
-        animation = fadeLayersIn, 1, $animation_duration_fade, easeinout, fade
-        animation = fadeLayersOut, 1, $animation_duration_fade, easeinout, fade
+    # Border angle animations
+    borderangle {
+    animation-style = loop;         # Looping gradient angle animation
+    animation-speed = 5000ms;       # Slow and subtle looping effect
+    }
 
-        # Border Animation
-        animation = border, 1, $animation_duration_border, default
-
-        # Border Angle Animation
-        animation = borderangle, 1, once
-
-        # Workspaces Animations
-        animation = workspaces, 1, $animation_duration_workspaces, easeinout, slidefade # Fallback cho workspaces
-        animation = workspacesIn, 1, $animation_duration_workspaces, easeinout, slidefade
-        animation = workspacesOut, 1, $animation_duration_workspaces, easeinout, slidefade
-        animation = specialWorkspace, 1, $animation_duration_workspaces, easeinout, slidefade # Fallback cho specialWorkspace
-        animation = specialWorkspaceIn, 1, $animation_duration_workspaces, easeinout, slidefade
-        animation = specialWorkspaceOut, 1, $animation_duration_workspaces, easeinout, slidefade
+    # Workspaces animations
+    workspace {
+    animation-style = slidefade;    # Combines sliding and fading for workspaces
+    animation-in = slidefade;       # Workspace enter animation
+    animation-out = slidefade;      # Workspace exit animation
+    animation-specialworkspace-in = slidefade; # Special workspace enter
+    animation-specialworkspace-out = slidefade; # Special workspace exit
     }
 
 **Gesture**
