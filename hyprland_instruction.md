@@ -12,53 +12,126 @@
 
     # Global animation settings
     animation {
-    enabled = true;
-    speed = 8; # Adjusts overall animation speed (lower is faster)
+        enabled = true;
+        speed = 8; # Tốc độ animation (giá trị càng cao, animation càng nhanh)
+        bezier = "default"; # Đường cong bezier mặc định cho animation
     }
 
     # Windows animations
-    window {
-    animation-style = slide;
-    animation-in = left;   # Slide in from the left when opening a window
-    animation-out = right; # Slide out to the right when closing a window
-    animation-move = popin; # Smooth effect for moving/resizing windows
+    animation:windows {
+        style = slide; # Sử dụng animation kiểu slide cho windows
+    }
+
+    animation:windowsIn {
+        style = slide;
+        direction = left; # Slide từ trái vào khi mở cửa sổ mới
+        duration = 200ms; # Thời gian animation
+    }
+
+    animation:windowsOut {
+        style = slide;
+        direction = right; # Slide ra bên phải khi đóng cửa sổ
+        duration = 200ms; # Thời gian animation
+    }
+
+    animation:windowsMove {
+        style = popin; # Animation nhẹ nhàng khi di chuyển hoặc thay đổi kích thước cửa sổ
+        duration = 150ms; # Thời gian animation ngắn hơn để tránh cảm giác chậm
     }
 
     # Layers animations
-    layer {
-    animation-style = fade;
-    animation-in = fadeLayersIn;  # Fade in layers smoothly
-    animation-out = fadeLayersOut; # Fade out layers smoothly
+    animation:layers {
+        style = fade; # Sử dụng animation kiểu fade cho layers
+    }
+
+    animation:layersIn {
+        style = fade;
+        duration = 200ms; # Fade in khi layer mở
+    }
+
+    animation:layersOut {
+        style = fade;
+        duration = 200ms; # Fade out khi layer đóng
     }
 
     # Fade animations
-    fade {
-    animation-fadein = 300ms;       # Window open fade duration
-    animation-fadeout = 300ms;      # Window close fade duration
-    animation-fadeswitch = 200ms;   # Active window switch fade duration
-    animation-fadeshadow = 200ms;   # Shadow fade duration
-    animation-fadedim = 250ms;      # Dimming inactive windows easing
-    animation-fadelayers = 300ms;   # Layer fade duration
+    animation:fade {
+        style = fade; # Sử dụng animation kiểu fade
+    }
+
+    animation:fadeIn {
+        duration = 200ms; # Fade in khi mở cửa sổ
+    }
+
+    animation:fadeOut {
+        duration = 200ms; # Fade out khi đóng cửa sổ
+    }
+
+    animation:fadeSwitch {
+        duration = 150ms; # Fade khi chuyển đổi giữa các cửa sổ hoạt động
+    }
+
+    animation:fadeShadow {
+        duration = 150ms; # Fade shadow khi chuyển đổi giữa các cửa sổ hoạt động
+    }
+
+    animation:fadeDim {
+        duration = 200ms; # Dimming animation cho cửa sổ không hoạt động
+    }
+
+    animation:fadeLayers {
+        style = fade; # Fade animation cho layers
+    }
+
+    animation:fadeLayersIn {
+        duration = 200ms; # Fade in khi layer mở
+    }
+
+    animation:fadeLayersOut {
+        duration = 200ms; # Fade out khi layer đóng
     }
 
     # Border animations
-    border {
-    animation-speed = 200ms;        # Speed of border color transitions
+    animation:border {
+        duration = 100ms; # Animation nhẹ nhàng cho border color switch
     }
 
-    # Border angle animations
-    borderangle {
-    animation-style = loop;         # Looping gradient angle animation
-    animation-speed = 5000ms;       # Slow and subtle looping effect
+    animation:borderangle {
+        style = loop; # Gradient angle animation lặp lại liên tục
+        duration = 5000ms; # Thời gian dài để tạo hiệu ứng gradient mượt mà
     }
 
     # Workspaces animations
-    workspace {
-    animation-style = slidefade;    # Combines sliding and fading for workspaces
-    animation-in = slidefade;       # Workspace enter animation
-    animation-out = slidefade;      # Workspace exit animation
-    animation-specialworkspace-in = slidefade; # Special workspace enter
-    animation-specialworkspace-out = slidefade; # Special workspace exit
+    animation:workspaces {
+        style = slidefade; # Kết hợp slide và fade cho workspace transitions
+    }
+
+    animation:workspacesIn {
+        style = slidefade;
+        direction = left; # Slide từ trái vào khi chuyển workspace
+        duration = 300ms; # Thời gian animation dài hơn để tạo cảm giác mượt mà
+    }
+
+    animation:workspacesOut {
+        style = slidefade;
+        direction = right; # Slide ra bên phải khi chuyển workspace
+        duration = 300ms;
+    }
+
+    animation:specialWorkspace {
+        style = slidefade; # Animation đặc biệt cho workspace cụ thể
+    }
+
+    animation:specialWorkspaceIn {
+        style = slidefade;
+        direction = left;
+        duration = 300ms;
+    }
+
+    animation:specialWorkspaceOut {
+        style = slidefade;
+        direction = right;
+        duration = 300ms;
     }
 
 **Gesture**
