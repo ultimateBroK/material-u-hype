@@ -13,35 +13,37 @@
     animations {
         enabled = yes
 
-        # ===== Định nghĩa Bezier Curves (tùy chỉnh) =====
-        bezier = easeOutQuart, 0.25, 1, 0.5, 1
-        bezier = easeInOutSine, 0.37, 0, 0.63, 1
-        bezier = modernBounce, 0.18, 0.99, 0, 1.15
+        # ===== Định nghĩa Bezier Curves =====
+        # GNOME thường dùng easeInOutCubic hoặc tương tự.
+        bezier = easeInOutCubic, 0.645, 0.045, 0.355, 1.0  # Chuẩn easeInOutCubic
+        bezier = easeOutQuart, 0.25, 1, 0.5, 1 # Đã dùng
+        bezier = modernBounce, 0.18, 0.99, 0, 1.15 # Đã dùng
+
 
         # ===== Windows Animations =====
-        # Chậm hơn để thấy rõ hiệu ứng, nhưng vẫn mượt
-        animation = windowsIn, 1, 1.2, easeOutQuart, slide     # 1200ms (1.2 giây)
-        animation = windowsOut, 1, 1.2, easeOutQuart, slide    # 1200ms (1.2 giây)
-        animation = windowsMove, 1, 0.9, easeInOutSine, slide  # 900ms
+        # Tốc độ tương tự GNOME
+        animation = windowsIn, 1, 0.3, easeInOutCubic, slide    # 300ms
+        animation = windowsOut, 1, 0.25, easeInOutCubic, slide   # 250ms
+        animation = windowsMove, 1, 0.25, easeInOutCubic, slide  # 250ms
 
         # ===== Layers Animations =====
-        animation = layersIn, 1, 1.0, easeOutQuart, slide  # 1000ms (1 giây)
-        animation = layersOut, 1, 1.0, easeOutQuart, fade   # 1000ms (1 giây)
+        animation = layersIn, 1, 0.3, easeInOutCubic, slide  # 300ms
+        animation = layersOut, 1, 0.2, easeInOutCubic, fade   # 200ms
 
         # ===== Fade Animations =====
-        animation = fadeIn, 1, 0.7, easeInOutSine      # 700ms
-        animation = fadeOut, 1, 0.6, easeInOutSine     # 600ms
-        animation = fadeSwitch, 1, 0.4, easeInOutSine  # 400ms
-        animation = fadeShadow, 1, 0.4, easeInOutSine # 400ms
-        animation = fadeDim, 1, 0.5, easeInOutSine    # 500ms
+        animation = fadeIn, 1, 0.2, easeInOutCubic        # 200ms
+        animation = fadeOut, 1, 0.15, easeInOutCubic       # 150ms
+        animation = fadeSwitch, 1, 0.1, easeInOutCubic    # 100ms
+        animation = fadeShadow, 1, 0.15, easeInOutCubic   # 150ms
+        animation = fadeDim, 1, 0.2, easeInOutCubic       # 200ms
 
         # ===== Border Animations =====
-        animation = border, 1, 1.5, default # 1.5 giây
-        animation = borderangle, 1, 4.0, default, loop # 4 giây
+        animation = border, 1, 1.0, default  # 1 giây
+        animation = borderangle, 1, 3.0, default, loop # 3 giây
 
         # ===== Workspaces Animations =====
-        animation = workspaces, 1, 0.9, easeOutQuart, slidefade 70% # 900ms
-        animation = specialWorkspace, 1, 0.9, easeOutQuart, slidefade 70% # 900ms
+        animation = workspaces, 1, 0.35, easeInOutCubic, slidefade 70%  # 350ms
+        animation = specialWorkspace, 1, 0.35, easeInOutCubic, slidefade 70% # 350ms
     }
 
 **Gesture**
