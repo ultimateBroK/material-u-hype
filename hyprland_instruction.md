@@ -13,36 +13,51 @@
     animations {
         enabled = yes
 
-        # == Định nghĩa các đường cong Bezier ==
-        bezier = easeInOut, 0.37, 0, 0.63, 1  # Mượt mà, cân bằng
-        bezier = overshot, 0.13, 0.99, 0.29, 1.1 # Vượt quá một chút, tạo cảm giác nảy
-        bezier = quickOut, 0, 0.75, 0.4, 1 # Nhanh dần ở cuối
+        # Bezier curve mượt mà, hiện đại (ease-in-out)
+        bezier = easeinout, 0.4, 0.0, 0.6, 1.0
 
-        # == Cấu hình cho cửa sổ (windows) ==
-        animation = windowsIn, 1, 5, easeInOut, slide
-        animation = windowsOut, 1, 5, easeInOut, slide
-        animation = windowsMove, 1, 5, easeInOut, slide
+        # Global durations (có thể tùy chỉnh nếu muốn)
+        animation_duration_windows = 5
+        animation_duration_layers = 5
+        animation_duration_workspaces = 7
+        animation_duration_fade = 5
+        animation_duration_border = 5
 
-        # == Cấu hình cho lớp (layers) ==
-        animation = layersIn, 1, 6, easeInOut, slide
-        animation = layersOut, 1, 5, quickOut, fade
-        animation = layersMove, 1, 5, easeInOut, slide
+        # Windows Animations
+        animation = windows, 1, $animation_duration_windows, easeinout, fade # Fallback animation cho windows
+        animation = windowsIn, 1, $animation_duration_windows, easeinout, slide, left
+        animation = windowsOut, 1, $animation_duration_windows, easeinout, slide, right
+        animation = windowsMove, 1, $animation_duration_windows, easeinout, fade
 
-        # == Cấu hình cho độ mờ (fade) ==
-        animation = fadeIn, 1, 7, easeInOut, fade
-        animation = fadeOut, 1, 7, easeInOut, fade
-        animation = fadeSwitch, 1, 4, quickOut # Nhanh chóng khi chuyển cửa sổ
-        animation = fadeShadow, 1, 4, quickOut
-        animation = fadeDim, 1, 4, easeInOut
-        animation = fadeLayersIn, 1, 5, easeInOut
-        animation = fadeLayersOut, 1, 5, quickOut
+        # Layers Animations
+        animation = layers, 1, $animation_duration_layers, easeinout, fade # Fallback animation cho layers
+        animation = layersIn, 1, $animation_duration_layers, easeinout, fade
+        animation = layersOut, 1, $animation_duration_layers, easeinout, fade
 
-        # == Cấu hình cho viền (border) ==
-        animation = border, 1, 10, default  # Thay đổi màu viền mượt mà
-        animation = borderangle, 1, 30, default, loop # Nếu dùng gradient border
+        # Fade Animations
+        animation = fade, 1, $animation_duration_fade, easeinout # Fallback animation cho fade
+        animation = fadeIn, 1, $animation_duration_fade, easeinout, fade
+        animation = fadeOut, 1, $animation_duration_fade, easeinout, fade
+        animation = fadeSwitch, 1, $animation_duration_fade, easeinout
+        animation = fadeShadow, 1, $animation_duration_fade, easeinout
+        animation = fadeDim, 1, $animation_duration_fade, easeinout
+        animation = fadeLayers, 1, $animation_duration_fade, easeinout # Fallback cho fadeLayers
+        animation = fadeLayersIn, 1, $animation_duration_fade, easeinout, fade
+        animation = fadeLayersOut, 1, $animation_duration_fade, easeinout, fade
 
-        # == Cấu hình cho workspace ==
-        animation = workspaces, 1, 5, easeInOut, slidefade 70% # Mượt và có hiệu ứng mờ
+        # Border Animation
+        animation = border, 1, $animation_duration_border, default
+
+        # Border Angle Animation
+        animation = borderangle, 1, once
+
+        # Workspaces Animations
+        animation = workspaces, 1, $animation_duration_workspaces, easeinout, slidefade # Fallback cho workspaces
+        animation = workspacesIn, 1, $animation_duration_workspaces, easeinout, slidefade
+        animation = workspacesOut, 1, $animation_duration_workspaces, easeinout, slidefade
+        animation = specialWorkspace, 1, $animation_duration_workspaces, easeinout, slidefade # Fallback cho specialWorkspace
+        animation = specialWorkspaceIn, 1, $animation_duration_workspaces, easeinout, slidefade
+        animation = specialWorkspaceOut, 1, $animation_duration_workspaces, easeinout, slidefade
     }
 
 **Gesture**
