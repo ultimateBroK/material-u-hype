@@ -1,7 +1,4 @@
-# Hành trình Hyprland trên CachyOS
-
-1. Cài CachyOS cùng WM Hyprland
-2. Mở Hyprland docs -> Master Tutorial
+# Hyprland setup (step by step) with CachyOS
 
 **Monitor**
 
@@ -49,11 +46,27 @@
         animation = specialWorkspace, 1, 4, easeOutQuart, slidefade 70%
     }
 
-**Gesture**
+**Touchpad and Gesture**
+
+    touchpad {
+        natural_scroll = yes  # Cuộn tự nhiên (như trên macOS/điện thoại)
+        disable_while_typing = yes # Vô hiệu hoá touchpad khi gõ phím
+        clickfinger_behavior = yes # Click bằng 1, 2, 3 ngón (left, right, middle)
+        tap-to-click = yes        # Chạm để click
+        drag_lock = yes #Giữ thao tác kéo thả (drag)
+        scroll_factor = 1.0 # Điều chỉnh tốc độ cuộn (1.0 là mặc định)
+    }
 
     gesture {
-        workspace_swipe = true
-        workspace_swipe_fingers = 3
-        disable_while_typing = true
+        workspace_swipe = yes   # Bật vuốt để chuyển đổi workspace
+        workspace_swipe_fingers = 3 # Sử dụng 3 ngón để vuốt
+        workspace_swipe_distance = 300 # Khoảng cách vuốt tối thiểu (pixels)
+        workspace_swipe_invert = no # Vuốt sang trái để chuyển sang workspace bên phải
+        workspace_swipe_min_speed_to_force = 30 #Tốc độ vuốt tối thiểu
+        #workspace_swipe_cancel_ratio = 0.5 # Tỉ lệ hoàn tác (nếu vuốt không đủ)
+        #workspace_swipe_create_new = yes # Vuốt để tạo workspace mới (nếu ở cuối danh sách)
+
+        workspace_swipe_direction_lock = yes # Khoá hướng vuốt
+        workspace_swipe_direction_lock_threshold = 10 #Ngưỡng khoá hướng
     }
 
