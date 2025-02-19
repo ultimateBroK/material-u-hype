@@ -1,4 +1,52 @@
-# Hyprland setup (step by step) with CachyOS
+# Hyprland setup (step by step) with Archlinux
+
+## Install Archlinux
+
+	loadkeys en
+	
+	ping google.com (check internet connection)
+
+	archinstall
+> Easy step :) do it by yourself, once done, reboot
+
+## Install Hyprland and some basic applications
+ 	
+> Install yay
+	
+	yay -S hyprland
+
+> Install basic applications
+
+	sudo pacman -S kitty firefox fastfetch wine nano nemo viewnior wofi waybar dunst thunar hyprpaper grim slurp cliphist polkit-gnome ibus-bamboo ttf-fira-code ttf-jetbrains-mono
+
+- Terminal: kitty
+- Browser: firefox
+- System-info: fastfetch 
+- Running Windows programs: wine  
+- Editor: nano 
+- File manager: thunar (or nemo) 
+- Image viewer: viewnior
+- Launcher: wofi
+- Status bar/Widget bar: waybar
+- Notification daemon: dunst
+- Wallpaper setter: hyprpaper
+- Screenshot tool: grim (screenshot), slurp (select area and screenshot)
+- Clipboard manager: cliphist
+- Input method: ibus-bamboo
+- Font: ttf-fira-code, ttf-jetbrains-mono
+- Polkit agent: polkit-gnome
+
+> For NVIDIA, AMD GPU
+	
+	# NVIDIA
+	sudo pacman -S nvidia-dkms nvidia-utils egl-wayland nvidia-settings
+
+	# AMD
+	sudo pacman -S xf86-video-amdgpu
+	
+> 
+
+## Hyprland Configuration
 
 **Monitor**
 
@@ -46,26 +94,3 @@
         animation = specialWorkspace, 1, 4, easeOutQuart, slidefade 70%
     }
 
-**Touchpad and Gesture**
-
-    touchpad {
-        natural_scroll = yes  # Cuộn tự nhiên (như trên macOS/điện thoại)
-        disable_while_typing = yes # Vô hiệu hoá touchpad khi gõ phím
-        clickfinger_behavior = yes # Click bằng 1, 2, 3 ngón (left, right, middle)
-        tap-to-click = yes        # Chạm để click
-        drag_lock = yes #Giữ thao tác kéo thả (drag)
-        scroll_factor = 1.0 # Điều chỉnh tốc độ cuộn (1.0 là mặc định)
-    }
-
-    gesture {
-        workspace_swipe = yes   # Bật vuốt để chuyển đổi workspace
-        workspace_swipe_fingers = 3 # Sử dụng 3 ngón để vuốt
-        workspace_swipe_distance = 300 # Khoảng cách vuốt tối thiểu (pixels)
-        workspace_swipe_invert = no # Vuốt sang trái để chuyển sang workspace bên phải
-        workspace_swipe_min_speed_to_force = 30 #Tốc độ vuốt tối thiểu
-        #workspace_swipe_cancel_ratio = 0.5 # Tỉ lệ hoàn tác (nếu vuốt không đủ)
-        #workspace_swipe_create_new = yes # Vuốt để tạo workspace mới (nếu ở cuối danh sách)
-
-        workspace_swipe_direction_lock = yes # Khoá hướng vuốt
-        workspace_swipe_direction_lock_threshold = 10 #Ngưỡng khoá hướng
-    }
