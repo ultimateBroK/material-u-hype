@@ -69,4 +69,3 @@
         workspace_swipe_direction_lock = yes # Khoá hướng vuốt
         workspace_swipe_direction_lock_threshold = 10 #Ngưỡng khoá hướng
     }
-
