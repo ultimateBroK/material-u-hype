@@ -44,7 +44,12 @@
 	# AMD
 	sudo pacman -S xf86-video-amdgpu
 	
-> 
+## Install login manager
+
+    sudo pacman -S sddm
+    sudo systemctl enable sddm.service
+    sudo systemctl start sddm.service
+
 
 ## Hyprland Configuration
 
